@@ -41,6 +41,13 @@ class RealtimeClientMessage(TypedDict):
     """Merged into the message body."""
 
 
+class RealtimeInputAudioNoiseReductionConfig(TypedDict):
+    """Configuration for noise reduction on input audio."""
+
+    type: NotRequired[Literal["near_field", "far_field"]]
+    """The type of noise reduction to use."""
+
+
 class RealtimeInputAudioTranscriptionConfig(TypedDict):
     """Configuration for audio transcription in realtime sessions."""
 
@@ -105,6 +112,9 @@ class RealtimeSessionModelSettings(TypedDict):
 
     input_audio_transcription: NotRequired[RealtimeInputAudioTranscriptionConfig]
     """Configuration for transcribing input audio."""
+
+    input_audio_noise_reduction: NotRequired[RealtimeInputAudioNoiseReductionConfig]
+    """Configuration for noise reduction on input audio."""
 
     turn_detection: NotRequired[RealtimeTurnDetectionConfig]
     """Configuration for detecting conversation turns."""
