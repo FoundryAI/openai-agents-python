@@ -564,7 +564,6 @@ class OpenAIRealtimeWebSocketModel(RealtimeModel):
 
     async def _update_session_config(self, model_settings: RealtimeSessionModelSettings) -> None:
         session_config = self._get_session_config(model_settings)
-        logger.info(f"Updating session config: {session_config}")
         await self._send_raw_message(
             OpenAISessionUpdateEvent(session=session_config, type="session.update")
         )
