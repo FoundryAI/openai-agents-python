@@ -555,14 +555,6 @@ class OpenAIRealtimeWebSocketModel(RealtimeModel):
             or parsed.type == "response.output_item.done"
         ):
             await self._handle_output_item(parsed.item)
-        elif parsed.type == "input_audio_buffer.timeout_triggered":
-            await self._emit_event(
-                RealtimeModelInputAudioTimeoutTriggeredEvent(
-                    item_id=parsed.item_id,
-                    audio_start_ms=parsed.audio_start_ms,
-                    audio_end_ms=parsed.audio_end_ms,
-                )
-            )
 
     def _update_created_session(self, session: OpenAISessionObject) -> None:
         self._created_session = session
