@@ -113,7 +113,6 @@ DEFAULT_MODEL_SETTINGS: RealtimeSessionModelSettings = {
         "model": "gpt-4o-mini-transcribe",
     },
     "turn_detection": {"type": "semantic_vad"},
-    "input_audio_noise_reduction": None,
 }
 
 
